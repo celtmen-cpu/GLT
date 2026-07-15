@@ -3,111 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agence Esport & Créative</title>
+    <title>Agence</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <style>
-        /* --- VARIABLES DE DESIGN --- */
         :root {
-            --bg-dark: #09070f;
-            --bg-card: #13101c;
-            --primary: #8b5cf6; /* Violet électrique */
-            --primary-hover: #a78bfa;
-            --text-light: #f3f4f6;
+            --violet: #8b5cf6;
+            --blanc: #ffffff;
+            --noir: #09070f;
+            --gris-card: #13101c;
             --text-muted: #9ca3af;
-            --border-color: rgba(139, 92, 246, 0.15);
-            --gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border: rgba(139, 92, 246, 0.2);
         }
 
-        /* --- RESET & BASES --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
+            font-family: sans-serif;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            overflow-x: hidden;
+            background-color: var(--noir);
+            color: var(--blanc);
             line-height: 1.6;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        button, .btn {
-            cursor: pointer;
-            border: none;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        /* --- LAYOUT & UTILITIES --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 20px;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-align: center;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
-        }
-
-        /* --- HEADER & NAVIGATION --- */
+        /* NAVIGATION */
         header {
             position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
+            background: rgba(9, 7, 15, 0.9);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
-            background: rgba(9, 7, 15, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            height: 70px;
         }
 
         .nav-menu {
@@ -116,181 +57,63 @@
         }
 
         .nav-link {
-            font-weight: 500;
-            font-size: 0.95rem;
-            padding: 8px 16px;
-            border-radius: 8px;
             color: var(--text-muted);
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--text-light);
-            background: rgba(139, 92, 246, 0.1);
+        .nav-link.active, .nav-link:hover {
+            color: var(--violet);
         }
 
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
-            color: var(--text-light);
+            background: none;
+            border: none;
+            color: var(--blanc);
+            cursor: pointer;
         }
 
-        /* --- PAGES (TABS SYSTEM) --- */
+        /* PAGES */
         .page {
             display: none;
-            padding-top: 120px;
-            padding-bottom: 80px;
+            padding-top: 100px;
+            padding-bottom: 50px;
             min-height: 100vh;
-            animation: fadeIn 0.5s ease;
         }
 
         .page.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- BUTTONS --- */
-        .btn-primary {
-            background: var(--gradient);
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 10px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(139, 92, 246, 0.5);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            color: var(--text-light);
-            padding: 12px 28px;
-            border-radius: 10px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-        }
-
-        /* ====================
-           1️⃣ ACCUEIL
-           ==================== */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .badge {
-            background: rgba(139, 92, 246, 0.15);
-            color: var(--primary-hover);
-            border: 1px solid var(--border-color);
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
+        .btn {
             display: inline-block;
-            margin-bottom: 1.5rem;
+            background: var(--violet);
+            color: var(--blanc);
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
         }
 
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 span {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 540px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 15px;
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid var(--border-color);
-        }
-
-        .glow-effect {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: var(--primary);
-            filter: blur(120px);
-            opacity: 0.3;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* ====================
-           2️⃣ EQUIPE
-           ==================== */
+        /* PAGE EQUIPE */
         .dropdown-container {
-            max-width: 400px;
-            margin: 0 auto 3rem auto;
-            position: relative;
+            margin: 20px 0;
         }
 
         .pole-select {
             width: 100%;
-            padding: 16px 20px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-light);
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 15px center;
+            max-width: 300px;
+            padding: 10px;
+            background: var(--gris-card);
+            color: var(--blanc);
+            border: 1px solid var(--border);
+            border-radius: 5px;
         }
 
         .pole-content {
@@ -299,497 +122,155 @@
 
         .pole-content.active {
             display: block;
-            animation: fadeIn 0.4s ease;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            margin-bottom: 4rem;
-        }
-
-        .team-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: var(--transition);
-            text-align: center;
-            padding-bottom: 20px;
-        }
-
-        .team-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .team-avatar {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .team-info {
-            padding: 20px 15px 10px 15px;
-        }
-
-        .team-pseudo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-light);
-        }
-
-        .team-role {
-            font-size: 0.9rem;
-            color: var(--primary-hover);
-            font-weight: 500;
-            margin-top: 5px;
-        }
-
-        /* Section "Ils nous ont fait confiance" */
-        .clients-section {
-            background: rgba(139, 92, 246, 0.03);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .clients-section h4 {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-
-        .clients-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .client-logo {
-            filter: grayscale(100%) opacity(60%);
-            transition: var(--transition);
-            max-height: 45px;
-            display: flex;
-            align-items: center;
-        }
-
-        .client-logo:hover {
-            filter: grayscale(0%) opacity(100%);
-            transform: scale(1.05);
-        }
-
-        .client-logo i {
-            font-size: 2rem;
-            color: #fff;
-        }
-
-        /* ====================
-           3️⃣ SERVICES
-           ==================== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: var(--transition);
-        }
-
-        .service-card.featured {
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
-        }
-
-        .service-card.featured::before {
-            content: "POPULAIRE";
-            position: absolute;
-            top: 20px;
-            right: -35px;
-            background: var(--gradient);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 6px 40px;
-            transform: rotate(45deg);
-        }
-
-        .service-header h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .service-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-        }
-
-        .service-features {
-            list-style: none;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             margin-bottom: 40px;
         }
 
-        .service-features li {
-            margin-bottom: 15px;
+        .member-card {
+            background: var(--gris-card);
+            border: 1px solid var(--border);
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            background: #252329;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-        }
-
-        .service-features i {
-            color: var(--primary-hover);
-        }
-
-        .service-action .btn {
-            width: 100%;
             justify-content: center;
+            color: var(--text-muted);
         }
 
-        /* ====================
-           4️⃣ LINK IN BIO & RESEAUX
-           ==================== */
+        .trust-section {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logo-link {
+            display: inline-block;
+            margin: 10px;
+            color: var(--blanc);
+            font-size: 2rem;
+            text-decoration: none;
+        }
+
+        .logo-link:hover {
+            color: var(--violet);
+        }
+
+        /* PAGE SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--gris-card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        /* PAGE RESEAUX */
         .bio-container {
-            max-width: 580px;
+            max-width: 500px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .bio-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid var(--primary);
-            margin: 0 auto 20px auto;
-            object-fit: cover;
+        .bio-link {
+            display: block;
+            background: var(--gris-card);
+            border: 1px solid var(--border);
+            padding: 15px;
+            margin: 10px 0;
+            color: var(--blanc);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
         }
 
-        .bio-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
+        .bio-link:hover {
+            border-color: var(--violet);
         }
 
-        .bio-info p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-        }
-
-        .bio-links {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-
-        .bio-link-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 18px 24px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: var(--transition);
-        }
-
-        .bio-link-card:hover {
-            border-color: var(--primary);
-            transform: scale(1.02);
-            background: rgba(139, 92, 246, 0.05);
-        }
-
-        .bio-link-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 600;
-        }
-
-        .bio-link-left i {
-            font-size: 1.4rem;
-            width: 30px;
-        }
-
-        .embed-container {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 20px;
-            margin-top: 30px;
-        }
-
-        .embed-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        /* ====================
-           5️⃣ PORTFOLIO
-           ==================== */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 4rem;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.8rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .portfolio-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .portfolio-thumb {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .portfolio-content {
-            padding: 25px;
-        }
-
-        .portfolio-tag {
-            color: var(--primary-hover);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            display: inline-block;
-        }
-
-        .portfolio-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-content p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .portfolio-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 15px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .portfolio-meta strong {
-            color: var(--text-light);
-        }
-
-        /* ====================
-           6️⃣ CONTACT
-           ==================== */
-        .contact-wrapper {
-            display: flex;
-            gap: 50px;
-            align-items: flex-start;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .contact-info p {
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
-
-        .alternative-channels {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .channel-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .channel-card i {
-            font-size: 1.5rem;
-            color: var(--primary-hover);
-        }
-
-        .contact-form-container {
-            flex: 1.2;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
-        }
-
+        /* PAGE CONTACT */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-muted);
+            margin-bottom: 5px;
         }
 
         .form-control {
             width: 100%;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 14px 18px;
-            color: var(--text-light);
-            font-size: 0.95rem;
-            transition: var(--transition);
+            padding: 10px;
+            background: var(--gris-card);
+            border: 1px solid var(--border);
+            color: var(--blanc);
+            border-radius: 5px;
         }
 
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-            background: rgba(255,255,255,0.05);
+        /* PAGE PORTFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
+        .portfolio-card {
+            background: var(--gris-card);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 8px;
         }
 
-        /* --- FOOTER --- */
-        footer {
-            background: #06050b;
-            border-top: 1px solid var(--border-color);
-            padding: 40px 0;
-            text-align: center;
+        .placeholder-visual {
+            width: 100%;
+            height: 150px;
+            background: #252329;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
-        footer p {
-            margin-bottom: 15px;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 992px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero p {
-                margin: 0 auto 2rem auto;
-            }
-            .hero-actions {
-                justify-content: center;
-            }
-            .contact-wrapper {
-                flex-direction: column;
-            }
-            .contact-info, .contact-form-container {
-                width: 100%;
-            }
-        }
-
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-menu {
-                display: none; /* Mobile menu can be toggled */
+                display: none;
+                flex-direction: column;
                 position: absolute;
-                top: 80px;
+                top: 70px;
                 left: 0;
                 width: 100%;
-                background: var(--bg-dark);
-                border-bottom: 1px solid var(--border-color);
-                flex-direction: column;
+                background: var(--noir);
                 padding: 20px;
-                gap: 15px;
-                text-align: center;
+                border-bottom: 1px solid var(--border);
             }
-            .nav-menu.mobile-open {
+            .nav-menu.open {
                 display: flex;
             }
             .menu-toggle {
                 display: block;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .section-title {
-                font-size: 2rem;
             }
         }
     </style>
@@ -798,49 +279,36 @@
 
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo" onclick="switchPage('accueil')">
-                <i class="fa-solid fa-bolt" style="color: var(--primary-hover)"></i>
-                <span>AGENCE</span> CREATIVE
-            </a>
+            <div class="nav-link" onclick="switchPage('accueil')">[Nom de l'agence / Logo]</div>
+            <button class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
             <nav class="nav-menu" id="navMenu">
-                <a href="#accueil" class="nav-link active" onclick="switchPage('accueil')">Accueil</a>
-                <a href="#equipe" class="nav-link" onclick="switchPage('equipe')">L'Équipe</a>
-                <a href="#services" class="nav-link" onclick="switchPage('services')">Services</a>
-                <a href="#portfolio" class="nav-link" onclick="switchPage('portfolio')">Portfolio</a>
-                <a href="#reseaux" class="nav-link" onclick="switchPage('reseaux')">Réseaux</a>
-                <a href="#contact" class="nav-link" onclick="switchPage('contact')">Contact</a>
+                <span class="nav-link active" onclick="switchPage('accueil')">Accueil</span>
+                <span class="nav-link" onclick="switchPage('equipe')">Équipe</span>
+                <span class="nav-link" onclick="switchPage('services')">Services</span>
+                <span class="nav-link" onclick="switchPage('portfolio')">Portfolio</span>
+                <span class="nav-link" onclick="switchPage('reseaux')">Réseaux</span>
+                <span class="nav-link" onclick="switchPage('contact')">Contact</span>
             </nav>
-            <button class="menu-toggle" onclick="toggleMenu()">
-                <i class="fa-solid fa-bars" id="menuIcon"></i>
-            </button>
         </div>
     </header>
 
+    <!-- 1️⃣ PAGE ACCUEIL -->
     <main class="page active" id="accueil">
         <div class="container">
-            <div class="hero">
-                <div class="hero-content">
-                    <span class="badge">Esport & Talent Agency</span>
-                    <h1>Propulsez votre identité au <span>niveau supérieur</span>.</h1>
-                    <p>Nous construisons l'image de marque, le contenu digital et les stratégies de communication des plus grands joueurs, créateurs et structures de l'écosystème Esport.</p>
-                    <div class="hero-actions">
-                        <a href="#services" class="btn btn-primary" onclick="switchPage('services')">Découvrir nos services</a>
-                        <a href="#contact" class="btn btn-secondary" onclick="switchPage('contact')">Nous contacter</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="glow-effect"></div>
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800" alt="Esport Arena">
-                </div>
+            <h1>Présentation de l'agence</h1>
+            <p style="margin-top: 20px;">Qui on est, ce qu'on fait, notre vision.</p>
+            <div style="margin-top: 30px; display: flex; gap: 15px;">
+                <span class="btn" onclick="switchPage('contact')">Nous contacter</span>
+                <span class="btn" onclick="switchPage('services')" style="background: transparent; border: 1px solid var(--violet);">Voir nos services</span>
             </div>
         </div>
     </main>
 
+    <!-- 2️⃣ PAGE ÉQUIPE -->
     <div class="page" id="equipe">
         <div class="container">
-            <h2 class="section-title">Notre Équipe</h2>
-            <p class="section-subtitle">Découvrez les experts passionnés qui se cachent derrière chaque projet créatif, stratégique et managérial.</p>
-
+            <h1>Équipe</h1>
+            
             <div class="dropdown-container">
                 <select class="pole-select" onchange="switchPole(this.value)">
                     <option value="pole-direction">👑 Équipe Direction</option>
@@ -850,408 +318,184 @@
                 </select>
             </div>
 
+            <!-- Équipe Direction -->
             <div id="pole-direction" class="pole-content active">
                 <div class="team-grid">
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="CEO" class="team-avatar">
-                        <div class="team-info">
-                            <h3 class="team-pseudo">Sovereign</h3>
-                            <p class="team-role">CEO & Fondateur</p>
-                        </div>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" alt="COO" class="team-avatar">
-                        <div class="team-info">
-                            <h3 class="team-pseudo">Vortex</h3>
-                            <p class="team-role">Directeur des Opérations (COO)</p>
-                        </div>
+                    <div class="member-card">
+                        <div class="member-avatar">[Photo/Avatar]</div>
+                        <h3>[Pseudo]</h3>
+                        <p>[Rôle]</p>
                     </div>
                 </div>
-                <div class="clients-section">
-                    <h4>Ils ont fait confiance à notre Équipe de Direction :</h4>
-                    <div class="clients-logos">
-                        <a href="https://twitter.com" target="_blank" class="client-logo"><i class="fa-brands fa-twitch"></i></a>
-                        <a href="https://twitter.com" target="_blank" class="client-logo"><i class="fa-brands fa-playstation"></i></a>
-                        <a href="https://twitter.com" target="_blank" class="client-logo"><i class="fa-brands fa-xbox"></i></a>
-                    </div>
+                <div class="trust-section">
+                    <p>Ils ont fait confiance à notre équipe de direction :</p>
+                    <a href="https://twitter.com" target="_blank" class="logo-link"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
 
+            <!-- Pôle Communication -->
             <div id="pole-comm" class="pole-content">
                 <div class="team-grid">
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400" alt="CM" class="team-avatar">
-                        <div class="team-info">
-                            <h3 class="team-pseudo">Nova</h3>
-                            <p class="team-role">Responsable Communication</p>
-                        </div>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" alt="CM" class="team-avatar">
-                        <div class="team-info">
-                            <h3 class="team-pseudo">Kael</h3>
-                            <p class="team-role">Community Manager Senior</p>
-                        </div>
+                    <div class="member-card">
+                        <div class="member-avatar">[Photo/Avatar]</div>
+                        <h3>[Pseudo]</h3>
+                        <p>[Rôle]</p>
                     </div>
                 </div>
-                <div class="clients-section">
-                    <h4>Ils ont fait confiance à nos Community Managers :</h4>
-                    <div class="clients-logos">
-                        <a href="https://twitter.com" target="_blank" class="client-logo"><i class="fa-brands fa-discord"></i></a>
-                        <a href="https://twitter.com" target="_blank" class="client-logo"><i class="fa-brands fa-spotify"></i></a>
-                    </div>
+                <div class="trust-section">
+                    <p>Ils ont fait confiance à nos Community Managers :</p>
+                    <a href="https://twitter.com" target="_blank" class="logo-link"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
 
+            <!-- Pôle Artistique -->
             <div id="pole-art" class="pole-content">
                 <div class="team-grid">
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400" alt="Lead Graphiste" class="team-avatar">
-                        <div class="team-info">
-                            <h3 class="team-pseudo">Astra</h3>
-                            <p class="team-role">Directeur Artistique</p>
-                        </div>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400" alt="Monteur" class="team-avatar">
-                        <div class="team-info">
-                            <h3 class="team-pseudo">Zephyr</h3>
-                            <p class="team-role">Monteur Vidéo Senior</p>
-                        </div>
+                    <div class="member-card">
+                        <div class="member-avatar">[Photo/Avatar]</div>
+                        <h3>[Pseudo]</h3>
+                        <p>[Rôle]</p>
                     </div>
                 </div>
-                <div class="clients-section">
-                    <h4>Ils ont fait confiance à nos Graphistes & Monteurs :</h4>
-                    <div class="clients-logos">
-                        <a href="https://twitter.com" target="_blank" class="client-logo"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://twitter.com" target="_blank" class="client-logo"><i class="fa-brands fa-tiktok"></i></a>
-                    </div>
+                <div class="trust-section">
+                    <p>Ils ont fait confiance à nos graphistes & monteurs :</p>
+                    <a href="https://twitter.com" target="_blank" class="logo-link"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
 
+            <!-- Pôle Management -->
             <div id="pole-mgmt" class="pole-content">
                 <div class="team-grid">
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=400" alt="Manager" class="team-avatar">
-                        <div class="team-info">
-                            <h3 class="team-pseudo">Cronos</h3>
-                            <p class="team-role">Directeur du Management</p>
-                        </div>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" alt="Manager" class="team-avatar">
-                        <div class="team-info">
-                            <h3 class="team-pseudo">Hera</h3>
-                            <p class="team-role">Talent Manager Esports</p>
-                        </div>
+                    <div class="member-card">
+                        <div class="member-avatar">[Photo/Avatar]</div>
+                        <h3>[Pseudo]</h3>
+                        <p>[Rôle]</p>
                     </div>
                 </div>
-                <div class="clients-section">
-                    <h4>Ils ont fait confiance à nos Managers :</h4>
-                    <div class="clients-logos">
-                        <a href="https://twitter.com" target="_blank" class="client-logo"><i class="fa-brands fa-steam"></i></a>
-                        <a href="https://twitter.com" target="_blank" class="client-logo"><i class="fa-brands fa-epic-games"></i></a>
-                    </div>
+                <div class="trust-section">
+                    <p>Ils ont fait confiance à nos managers :</p>
+                    <a href="https://twitter.com" target="_blank" class="logo-link"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
-
         </div>
     </div>
 
+    <!-- 3️⃣ PAGE SERVICES -->
     <div class="page" id="services">
         <div class="container">
-            <h2 class="section-title">Nos Formules</h2>
-            <p class="section-subtitle">Chaque projet est unique. Nous proposons des accompagnements sur-mesure pour s'adapter à votre rythme et vos ambitions.</p>
-
-            <div class="services-grid">
+            <h1>Présentation des formules</h1>
+            <div class="services-grid" style="margin-top: 30px;">
                 <div class="service-card">
-                    <div class="service-header">
-                        <h3>Starter</h3>
-                        <p class="service-desc">Pour lancer proprement votre projet créatif ou votre structure naissante.</p>
-                    </div>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> Charte graphique & Logo de base</li>
-                        <li><i class="fa-solid fa-check"></i> Configuration de vos réseaux</li>
-                        <li><i class="fa-solid fa-check"></i> Stratégie de lancement</li>
-                        <li><i class="fa-solid fa-check"></i> Support par Discord 5j/7</li>
-                    </ul>
-                    <div class="service-action">
-                        <a href="#contact" class="btn btn-secondary" onclick="switchPage('contact')">Demander un devis</a>
-                    </div>
+                    <h2>Starter</h2>
+                    <p style="margin: 15px 0;">[Détail de ce qui est inclus dans la formule]</p>
+                    <span class="btn" onclick="switchPage('contact')">Nous contacter pour un devis</span>
                 </div>
-
-                <div class="service-card featured">
-                    <div class="service-header">
-                        <h3>Growth</h3>
-                        <p class="service-desc">L'idéal pour structurer votre comm' et accélérer la croissance de vos audiences.</p>
-                    </div>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> Identité visuelle complète (Overlay, bannières...)</li>
-                        <li><i class="fa-solid fa-check"></i> 10 Shorts / TikTok par mois montés</li>
-                        <li><i class="fa-solid fa-check"></i> Gestion de crise & direction com'</li>
-                        <li><i class="fa-solid fa-check"></i> Rapport de stats mensuel</li>
-                        <li><i class="fa-solid fa-check"></i> Support prioritaire 7j/7</li>
-                    </ul>
-                    <div class="service-action">
-                        <a href="#contact" class="btn btn-primary" onclick="switchPage('contact')">Demander un devis</a>
-                    </div>
-                </div>
-
                 <div class="service-card">
-                    <div class="service-header">
-                        <h3>Full</h3>
-                        <p class="service-desc">Une externalisation globale de votre marque par des experts Esport à votre service.</p>
-                    </div>
-                    <ul class="service-features">
-                        <li><i class="fa-solid fa-check"></i> DA premium complète illimitée</li>
-                        <li><i class="fa-solid fa-check"></i> CM et modération de vos réseaux (24/7)</li>
-                        <li><i class="fa-solid fa-check"></i> Montage vidéo & production YouTube illimitée</li>
-                        <li><i class="fa-solid fa-check"></i> Recherche de sponsors & Talent Management</li>
-                        <li><i class="fa-solid fa-check"></i> Account Manager dédié</li>
-                    </ul>
-                    <div class="service-action">
-                        <a href="#contact" class="btn btn-secondary" onclick="switchPage('contact')">Demander un devis</a>
-                    </div>
+                    <h2>Growth</h2>
+                    <p style="margin: 15px 0;">[Détail de ce qui est inclus dans la formule]</p>
+                    <span class="btn" onclick="switchPage('contact')">Nous contacter pour un devis</span>
+                </div>
+                <div class="service-card">
+                    <h2>Full</h2>
+                    <p style="margin: 15px 0;">[Détail de ce qui est inclus dans la formule]</p>
+                    <span class="btn" onclick="switchPage('contact')">Nous contacter pour un devis</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="page" id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Notre Portfolio</h2>
-            <p class="section-subtitle">Aperçu de nos réalisations majeures et de l'impact généré pour nos clients partenaires.</p>
-
-            <div class="stats-row">
-                <div class="stat-card">
-                    <div class="stat-number">+15M</div>
-                    <div class="stat-label">Vues générées</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">+250k</div>
-                    <div class="stat-label">Nouveaux followers</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">40+</div>
-                    <div class="stat-label">Projets accompagnés</div>
-                </div>
-            </div>
-
-            <div class="portfolio-grid">
-                <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&q=80&w=600" alt="Rebrand Esport" class="portfolio-thumb">
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">Brand Identity</span>
-                        <h3>Rebranding Club Esport</h3>
-                        <p>Refonte totale de la DA d'un club évoluant en LFL : Logos, maillots, assets réseaux sociaux de matchday.</p>
-                        <div class="portfolio-meta">
-                            <span>Client : <strong>Overlook Club</strong></span>
-                            <span>Statut : <strong>Livré</strong></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=600" alt="Video Editing" class="portfolio-thumb">
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">Contenu & Vidéo</span>
-                        <h3>Campagne TikTok / Reels</h3>
-                        <p>Production de 30 vidéos courtes pour un joueur pro à l'approche de son tournoi international.</p>
-                        <div class="portfolio-meta">
-                            <span>Vues : <strong>+2.4M</strong></span>
-                            <span>Engagement : <strong>18%</strong></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600" alt="Event Comm" class="portfolio-thumb">
-                    <div class="portfolio-content">
-                        <span class="portfolio-tag">Communication</span>
-                        <h3>Lancement Événementiel</h3>
-                        <p>Animation éditoriale et couverture en temps réel (Twitter/Twitch) pour un tournoi esport caritatif.</p>
-                        <div class="portfolio-meta">
-                            <span>Peak Viewers : <strong>25 000</strong></span>
-                            <span>Durée : <strong>48H Non Stop</strong></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- 4️⃣ PAGE RÉSEAUX -->
     <div class="page" id="reseaux">
         <div class="container">
-            <h2 class="section-title">Suivez-nous</h2>
-            <p class="section-subtitle">Toutes nos plateformes sociales centralisées en un seul endroit.</p>
-
             <div class="bio-container">
-                <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&q=80&w=150" alt="Logo Agence" class="bio-avatar">
-                
-                <div class="bio-info">
-                    <h3>@AgenceCreativeEsport</h3>
-                    <p>Créateurs de contenus & stratèges du web esport.</p>
-                </div>
-
-                <div class="bio-links">
-                    <a href="https://twitter.com" target="_blank" class="bio-link-card">
-                        <div class="bio-link-left">
-                            <i class="fa-brands fa-x-twitter" style="color: #fff"></i>
-                            <span>Twitter / X</span>
-                        </div>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-
-                    <a href="https://tiktok.com" target="_blank" class="bio-link-card">
-                        <div class="bio-link-left">
-                            <i class="fa-brands fa-tiktok" style="color: #ff0050"></i>
-                            <span>TikTok</span>
-                        </div>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-
-                    <a href="https://youtube.com" target="_blank" class="bio-link-card">
-                        <div class="bio-link-left">
-                            <i class="fa-brands fa-youtube" style="color: #ff0000"></i>
-                            <span>YouTube</span>
-                        </div>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-
-                    <a href="https://discord.com" target="_blank" class="bio-link-card">
-                        <div class="bio-link-left">
-                            <i class="fa-brands fa-discord" style="color: #5865F2"></i>
-                            <span>Discord Communautaire</span>
-                        </div>
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
-                </div>
-
-                <div class="embed-container">
-                    <div class="embed-header">
-                        <i class="fa-brands fa-x-twitter"></i> Dernier Post Twitter
-                    </div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; text-align: left; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px; border-left: 3px solid var(--primary)">
-                        🚀 On a hâte de vous dévoiler le nouveau projet de l'agence. C'est l'un des plus gros rebrands créés cette année pour une structure esport européenne... 👀 Stay tuned ! #Esport #Creative
-                    </p>
+                <h1>Nos Réseaux</h1>
+                <div style="margin: 30px 0;">
+                    <a href="https://twitter.com" target="_blank" class="bio-link">Twitter</a>
+                    <a href="https://www.tiktok.com" target="_blank" class="bio-link">TikTok</a>
+                    <a href="https://www.youtube.com" target="_blank" class="bio-link">YouTube</a>
+                    <a href="https://discord.com" target="_blank" class="bio-link">Discord</a>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- 5️⃣ PAGE PORTFOLIO -->
+    <div class="page" id="portfolio">
+        <div class="container">
+            <h1>Portfolio</h1>
+            <p style="margin-bottom: 20px;">Showcase des missions réalisées avec stats clés</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="placeholder-visual">[Exemple visuel : tweet, affiche, vidéo]</div>
+                    <h3>[Nom de la mission]</h3>
+                    <p>[Logos des structures accompagnées]</p>
+                    <p><strong>[Stats clés]</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6️⃣ PAGE CONTACT -->
     <div class="page" id="contact">
         <div class="container">
-            <h2 class="section-title">Travaillons Ensemble</h2>
-            <p class="section-subtitle">Vous avez un projet en tête ou souhaitez en savoir plus sur nos offres ? Envoyez-nous un mot.</p>
-
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h3>Parlons de votre projet</h3>
-                    <p>Pour toute demande commerciale, de partenariat ou d'accompagnement sur-mesure. Nous vous lisons attentivement.</p>
-                    
-                    <div class="badge" style="margin-bottom: 25px;"><i class="fa-regular fa-clock"></i> Réponse garantie sous 24h</div>
-
-                    <div class="alternative-channels">
-                        <a href="https://discord.com" target="_blank" class="channel-card">
-                            <i class="fa-brands fa-discord"></i>
-                            <div>
-                                <h4 style="font-size: 0.95rem;">Nous rejoindre sur Discord</h4>
-                                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0;">Discutez en direct avec nos fondateurs</p>
-                            </div>
-                        </a>
-                        <a href="https://twitter.com" target="_blank" class="channel-card">
-                            <i class="fa-brands fa-x-twitter"></i>
-                            <div>
-                                <h4 style="font-size: 0.95rem;">Contacter par Twitter</h4>
-                                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0;">DMs ouverts pour toute opportunité</p>
-                            </div>
-                        </a>
-                    </div>
+            <h1>Contact</h1>
+            <p style="margin-bottom: 20px;">Réponse sous 24h</p>
+            
+            <form onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" class="form-control">
                 </div>
-
-                <div class="contact-form-container">
-                    <form onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Votre nom / Pseudo *</label>
-                            <input type="text" id="name" class="form-control" placeholder="Ex: Jean 'Sovereign' Dupont" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="structure">Votre structure (optionnel)</label>
-                            <input type="text" id="structure" class="form-control" placeholder="Ex: Overlook Esport Club">
-                        </div>
-                        <div class="form-group">
-                            <label for="budget">Budget approximatif (EUR)</label>
-                            <select id="budget" class="form-control">
-                                <option value="starter">Moins de 500 €</option>
-                                <option value="medium">500 € - 2 000 €</option>
-                                <option value="premium">Plus de 2 000 €</option>
-                                <option value="not_sure">Je ne sais pas encore</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Votre message *</label>
-                            <textarea id="message" class="form-control" placeholder="Dites-nous tout sur vos objectifs..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Envoyer ma demande</button>
-                    </form>
+                <div class="form-group">
+                    <label>Structure</label>
+                    <input type="text" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label>Budget approximatif</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea class="form-control" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+
+            <div style="margin-top: 30px;">
+                <p>Alternatives : 
+                    <a href="https://discord.com" target="_blank" style="color: var(--violet);">Lien Discord</a> | 
+                    <a href="https://twitter.com" target="_blank" style="color: var(--violet);">Twitter</a>
+                </p>
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Agence Créative & Esport. Tous droits réservés.</p>
-            <p style="font-size: 0.8rem; color: #4b5563;">Le nom final et le logo officiel remplaceront prochainement les placeholders.</p>
-        </div>
-    </footer>
-
     <script>
-        // NAVIGATION : Système d'onglets (SPA)
         function switchPage(pageId) {
-            // Cacher toutes les pages
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
 
-            // Afficher la page ciblée
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
             }
 
-            // Mettre à jour l'état actif dans la navigation
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('onclick').includes(pageId)) {
+                if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(pageId)) {
                     link.classList.add('active');
                 }
             });
 
-            // Fermer le menu mobile s'il était ouvert
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.remove('mobile-open');
-            document.getElementById('menuIcon').className = "fa-solid fa-bars";
-
-            // Scroll au sommet
+            document.getElementById('navMenu').classList.remove('open');
             window.scrollTo(0, 0);
         }
 
-        // NAVIGATION : Menu mobile toggle
         function toggleMenu() {
-            const navMenu = document.getElementById('navMenu');
-            const menuIcon = document.getElementById('menuIcon');
-            
-            navMenu.classList.toggle('mobile-open');
-
-            if (navMenu.classList.contains('mobile-open')) {
-                menuIcon.className = "fa-solid fa-xmark";
-            } else {
-                menuIcon.className = "fa-solid fa-bars";
-            }
+            document.getElementById('navMenu').classList.toggle('open');
         }
 
-        // ÉQUIPE : Menu déroulant des Pôles
         function switchPole(poleId) {
             const poles = document.querySelectorAll('.pole-content');
             poles.forEach(pole => pole.classList.remove('active'));
@@ -1261,21 +505,6 @@
                 targetPole.classList.add('active');
             }
         }
-
-        // CONTACT : Gestion de la soumission du formulaire
-        function handleSubmit(e) {
-            e.preventDefault();
-            alert("Merci pour votre message ! Notre équipe reviendra vers vous sous 24h.");
-            e.target.reset();
-        }
-
-        // Lecture des hashes d'URL pour navigation directe
-        window.addEventListener('load', () => {
-            const hash = window.location.hash.substring(1);
-            if (hash && ['accueil', 'equipe', 'services', 'portfolio', 'reseaux', 'contact'].includes(hash)) {
-                switchPage(hash);
-            }
-        });
     </script>
 </body>
 </html>
